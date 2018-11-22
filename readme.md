@@ -1,5 +1,4 @@
 ![](https://i.imgur.com/Qju3dvw.png)  
-Unoffical library
 
 ## Todo
 Current development status:
@@ -40,3 +39,23 @@ Current development status:
     ```sh
     pip install python-lametric
     ```
+
+## Example
+
+```python
+from lametric import LaMetric
+from time import sleep
+
+time = LaMetric(adress='192.168.0.199', key='dla7or4bcb680cff1887b1fcf60b2a66cfe51c46f53bbd8651a73e961f98p2a6')
+
+# getting properties
+print('Hello from ' + time.name)
+
+# setting brightness
+time.set_brightness(100)
+
+# switching apps
+time.switch_next_app()
+sleep(1)
+time.switch_prev_app()
+```
