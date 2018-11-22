@@ -1,6 +1,5 @@
 from base64 import b64encode
-from requests import get
-from requests import put
+from requests import post, get, put
 
 class LaMetric:
     '''
@@ -30,6 +29,8 @@ class LaMetric:
             return get(request_adress, headers=request_headers, data=body).json()
         elif type == 'put':
             return put(request_adress, headers=request_headers, data=body).json()
+        elif type == 'post':
+            return post(request_adress, headers=request_headers, data=body).json()
 
     def get_device(self):
         '''
@@ -93,6 +94,15 @@ class LaMetric:
         '''
         self.apps = self.__clockrequest__(adress='/device/apps/')
         return self.apps
+
+    # Notification
+
+    def send_notification(self, text, icon='', priority='warning', icon_type='info', lifetime=5000):
+        '''
+        Sending notification to LaMetric.
+        '''
+        request_body = '{\"priority\" : \"' + priority + '\", \"icon_type\" : \"' + icon_type + '\", \"lifeTime\" : \"' + str(lifetime) + '\", \"model\" : {\"frames\" : [{\"icon\" : \"' + icon + '\", \"text\" : \"' + text + '\"}]}}'
+        return self.__clockrequest__('/device/notifications', body=request_body, type='post')
 
     def __init__(self, adress, key):
         # setting adress
