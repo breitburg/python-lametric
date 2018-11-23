@@ -26,11 +26,11 @@ class LaMetric:
         request_adress = self.adress + '/api/v' + str(self.__api_info__['version']) + adress
         request_headers = {'Authorization': 'Basic ' + str(b64encode(str.encode('dev:' + self.__api_info__['key']))).replace('b\'', '').replace('\'', '')}
         if type == 'get':
-            return get(request_adress, headers=request_headers, data=body).json()
+            return get(request_adress, headers=request_headers, data=(body if body == None else body.encode('utf-8'))).json()
         elif type == 'put':
-            return put(request_adress, headers=request_headers, data=body).json()
+            return put(request_adress, headers=request_headers, data=(body if body == None else body.encode('utf-8'))).json()
         elif type == 'post':
-            return post(request_adress, headers=request_headers, data=body).json()
+            return post(request_adress, headers=request_headers, data=(body if body == None else body.encode('utf-8'))).json()
 
     def get_device(self):
         '''
@@ -119,3 +119,4 @@ class LaMetric:
         # updating properties
         self.get_device()
         self.get_apps()
+        
