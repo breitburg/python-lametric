@@ -3,15 +3,16 @@
 ## Todo
 Current development status:
 
-| Title         | State |
-|---------------|:-----:|
-| Device        |   ✅  |
-| Apps          |   ☢️  |
-| Notifications |   ☢️  |
-| Display       |   ✅  |
-| Audio         |   ⛔️  |
-| Bluetooth     |   ⛔️  |
-| Wi-Fi         |   ⛔️  |
+| Title             | State |
+|-------------------|:-----:|
+| Device Discovery  |   ⛔️  |
+| Device            |   ✅  |
+| Apps              |   ✅  |
+| Notifications     |   ✅  |
+| Display           |   ✅  |
+| Audio             |   ✅  |
+| Bluetooth         |   ✅  | 
+| Wi-Fi             |   ✅  |
 
 ✅ – Working
 ☢️ – Working, but not all functions are ready
@@ -59,4 +60,12 @@ time.switch_prev_app()
 
 # sending notifications
 time.send_notification(text='Hello from Python!', icon='24675')
+
+# getting notifications
+notifications = time.get_notifications()
+
+# removing all notifications
+for notification_dict in notifications:
+    time.remove_notification(notification_dict['id'])
+
 ```
