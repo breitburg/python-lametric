@@ -2,7 +2,7 @@ from setuptools import setup
 from os import path
 
 setup(
-    name='python-lametric',
+    name='lametric',
     version='1.0',
     description='Library for controlling LaMetric Time using official device API ',
     url='https://github.com/ketsu8/python-lametric',

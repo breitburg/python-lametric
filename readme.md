@@ -38,7 +38,7 @@ Current development status:
 - Installation using [pip](https://github.com/pypa/pip)
     1. Open terminal and type
     ```sh
-    pip install python-lametric
+    pip install lametric
     ```
 
 ## Example
