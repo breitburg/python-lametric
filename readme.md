@@ -43,6 +43,8 @@ Current development status:
 
 ## Example
 
+Device key you can get [here](https://developer.lametric.com/user/devices).
+
 ```python
 from lametric import LaMetric
 
