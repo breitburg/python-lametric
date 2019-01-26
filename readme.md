@@ -48,26 +48,26 @@ Device key you can get [here](https://developer.lametric.com/user/devices).
 ```python
 from lametric import LaMetric
 
-time = LaMetric(adress='192.168.0.199', key='dla7or4bcb680cff1887b1fcf60b2a66cfe51c46f53bbd8651a73e961f98p2a6')
+clock = LaMetric(adress='192.168.0.199', key='dla7or4bcb680cff1887b1fcf60b2a66cfe51c46f53bbd8651a73e961f98p2a6')
 
 # getting properties
-print('Clock name is ' + time.name)
+print('Clock name is ' + clock.name)
 
 # setting brightness
-time.set_brightness(100)
+clock.set_brightness(100)
 
 # switching apps
-time.switch_next_app()
-time.switch_prev_app()
+clock.switch_next_app()
+clock.switch_prev_app()
 
 # sending notifications
-time.send_notification(text='Hello from Python!', icon='24675')
+clock.send_notification(text='Hello from Python!', icon='24675')
 
 # getting notifications
-notifications = time.get_notifications()
+notifications = clock.get_notifications()
 
 # removing all notifications
 for notification_dict in notifications:
-    time.remove_notification(notification_dict['id'])
+    clock.remove_notification(notification_dict['id'])
 
 ```
