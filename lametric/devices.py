@@ -21,15 +21,15 @@ class BaseDevice:
                 '\'', '')}
 
         if type == 'get':
-            function = get
+            method = get
         elif type == 'put':
-            function = put
+            method = put
         elif type == 'post':
-            function = post
+            method = post
         elif type == 'delete':
-            function = delete
+            method = delete
 
-        return function(request_address, headers=request_headers,
+        return method(request_address, headers=request_headers,
                         data=(body if body is None else body.encode('utf-8'))).json()
 
 
@@ -67,17 +67,8 @@ class Time(BaseDevice):
         self.display = device_request['display']
         self.wifi = device_request['wifi']
 
-        # updating properties
-        self.get_device()
+        # Getting applications
         self.get_apps()
-
-    def get_device(self):
-        '''
-        Returns dict with full
-        device information.
-        '''
-
-    # Display
 
     def set_brightness(self, level):
         '''
@@ -87,8 +78,9 @@ class Time(BaseDevice):
         or string 'auto' if you want
         set auto mode.
         '''
+
         if level == 'auto':
-            self.display['brightness'] == 0
+            self.display['brightness'] = 0
         else:
             self.display['brightness'] = level
         self.display['brightness_mode'] = ('auto' if level == 'auto' else 'manual')
@@ -97,8 +89,6 @@ class Time(BaseDevice):
             '0' if level == 'auto' else str(level)) + ', \"brightness_mode\" : \"' + (
                                                              'auto' if level == 'auto' else 'manual') + '\"}',
                                  type='put')
-
-    # Applications
 
     def switch_next_app(self):
         '''
@@ -137,8 +127,6 @@ class Time(BaseDevice):
         self.apps = self.__api_call__('/device/apps/')
         return self.apps
 
-    # Notification
-
     def send_notification(self, text, icon='', priority='warning', icon_type='info', lifetime=5000):
         '''
         Sending notification to LaMetric.
@@ -159,8 +147,6 @@ class Time(BaseDevice):
         '''
         return self.__api_call__('/device/notifications/' + str(id), type='delete')
 
-    # Audio
-
     def get_audio(self):
         '''
         Returns audio state such as volume.
@@ -173,15 +159,11 @@ class Time(BaseDevice):
         '''
         return self.__api_call__('/device/audio', body='{\"volume\" : ' + str(volume_level) + '}', type='put')
 
-    # Wifi
-
     def get_wifi(self):
         '''
         Returns Wi-Fi state.
         '''
         return self.__api_call__('/device/wifi', type='get')
-
-    # Bluetooth
 
     def get_bluetooth(self):
         '''
