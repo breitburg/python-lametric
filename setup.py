@@ -1,13 +1,12 @@
 from setuptools import setup
-from os import path
 
 setup(
     name='lametric',
-    version='1.0',
-    description='Library for controlling LaMetric Time using official device API ',
-    url='https://github.com/ketsu8/python-lametric',
-    author='ketsu8',
-    author_email='ilya.breytburg@gmail.com',
+    version='2.0.0',
+    description='Lametric API wrapper written on Python. ',
+    url='https://github.com/breitburg/python-lametric',
+    author='Ilya Breitburg',
+    author_email='me@breitburg.com',
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
@@ -21,9 +20,9 @@ setup(
     ],
     keywords='lametric python',
     packages=['lametric'],
-    install_requires=['requests'],
+    install_requires=['requests', 'upnpclient', 'munch'],
     project_urls={
-        'Bug Reports': 'https://github.com/ketsu8/python-lametric/issues',
-        'Source': 'https://github.com/ketsu8/python-lametric',
+        'Bug Reports': 'https://github.com/breitburg/python-lametric/issues',
+        'Source': 'https://github.com/breitburg/python-lametric',
     },
 )
