@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name='lametric',
@@ -19,7 +19,7 @@ setup(
         'Programming Language :: Python :: 3.7',
     ],
     keywords='lametric python',
-    packages=['lametric'],
+    packages=find_packages(),
     install_requires=['requests', 'upnpclient', 'munch'],
     project_urls={
         'Bug Reports': 'https://github.com/breitburg/python-lametric/issues',
