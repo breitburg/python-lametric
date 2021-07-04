@@ -57,8 +57,8 @@ class Time:
             'model': {
                 'frames': [frame.to_json() for frame in frames],
                 'sound': sound.to_json()
-            },
-            'cycles': cycles
+                'cycles': cycles
+            }
         }))['success']
 
     def notification_list(self) -> list:
