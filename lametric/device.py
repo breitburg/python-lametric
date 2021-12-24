@@ -56,7 +56,7 @@ class Time:
             'lifeTime': seconds * 1000,
             'model': {
                 'frames': [frame.to_json() for frame in frames],
-                'sound': sound.to_json()
+                'sound': sound.to_json(),
                 'cycles': cycles
             }
         }))['success']
